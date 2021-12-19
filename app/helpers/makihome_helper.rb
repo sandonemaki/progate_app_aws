@@ -1,0 +1,2 @@
+module MakihomeHelper
+end
