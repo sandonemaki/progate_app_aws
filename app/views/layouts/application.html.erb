@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProgateAppAws</title>
+    <title>TweetApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <%= link_to("TweetApp", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("TweetAppとは", "about") %>
+        </li>
+      </ul>
+   </header>
     <%= yield %>
   </body>
 </html>
