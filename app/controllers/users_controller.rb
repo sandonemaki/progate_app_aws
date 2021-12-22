@@ -54,6 +54,7 @@ class UsersController < ApplicationController
   end
 
   def login
+    # login_formで入力した情報とデータベースの情報が一致していたらインスタンス変数@userに代入。
     @user = User.find_by(email: params[:email],
                          password: params[:password])
     if @user
@@ -61,6 +62,9 @@ class UsersController < ApplicationController
       flash[:notice] = "ログインしました"
       redirect_to("/posts/index")
     else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = params[:email]
+      @password = params[:password]
       render("login_form")
     end
   end
