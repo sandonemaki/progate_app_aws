@@ -33,6 +33,15 @@ class UsersController < ApplicationController
     # フォームから送られてきた値に上書きする。
     @user.name = params[:name]
     @user.email = params[:email]
+
+    if params[:image]
+      # 画像のファイル名をデータベースに保存。
+      @user.image_name = "#{@user.id}.jpg"
+      # 受け取ったデータを変数imageに代入。
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
+
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{@user.id}")
