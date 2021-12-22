@@ -24,13 +24,16 @@
          <li>
           <%= link_to("新規投稿", "/posts/new") %>
         </li>
-     </ul>
-   </header>
-   <% if flash[:notice] %>
+         <li>
+          <%= link_to("ユーザー一覧", "/users/index") %>
+        </li>
+      </ul>
+    </header>
+    <% if flash[:notice] %>
      <div class="flash">
        <%= flash[:notice] %>
      </div>
-   <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
